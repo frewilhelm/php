@@ -1,31 +1,15 @@
 <!DOCTYPE html>
   <head>
-    <title>Hello World!</title>
+    <title>Introduction to PHP!</title>
   </head>
 
   <body>
-    <h1>Hello World!</h1>
-    <p><?php echo 'We are running PHP, version: ' . phpversion(); ?></p>
+    <h1><?php echo 'Introduction to PHP! (version: ' . phpversion(); echo ')' ?></h1>
+    <input type=button onClick="parent.location='datatypes.php'" value='Datatypes'><br/>
+    <input type=button onClick="parent.location='functions.php'" value='Functions'><br/>
+    <input type=button onClick="parent.location='scope.php'" value='Scope'><br/>
+    <input type=button onClick="parent.location='database.php'" value='Database'>
     <?
-      $database ="mydb";
-      $user = "root";
-      $password = "secret";
-      $host = "mysql";
-
-      $connection = new PDO("mysql:host={$host};dbname={$database};charset=utf8", $user, $password);
-      $query = $connection->query("SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_TYPE='BASE TABLE'");
-      $tables = $query->fetchAll(PDO::FETCH_COLUMN);
-
-      if (empty($tables)) {
-        echo "<p>There are no tables in database \"{$database}\".</p>";
-      } else {
-        echo "<p>Database \"{$database}\" has the following tables:</p>";
-        echo "<ul>";
-          foreach ($tables as $table) {
-            echo "<li>{$table}</li>";
-          }
-        echo "</ul>";
-      }
     ?>
   </body>
 </html>
